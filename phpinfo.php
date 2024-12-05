@@ -1,7 +1,11 @@
 <?php
-$servername = getenv('DB_HOST') ?: '127.0.0.1';
-$username = getenv('DB_USERNAME') ?: 'myuser';
-$password = getenv('DB_PASSWORD') ?: 'mypassword';
-$dbname = getenv('DB_NAME') ?: 'mydatabase';
+$conn_str = getenv('MYSQLCONNSTR_localdb');
+parse_str(str_replace(';', '&', $conn_str), $db_params);
+
+$servername = $db_params['Server'];
+$dbname = $db_params['Database'];
+$username = $db_params['User'];
+$password = $db_params['Password'];
+
 
 var_dump($servername, $username, $password, $dbname);
