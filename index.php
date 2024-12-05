@@ -18,7 +18,7 @@ echo $username. '|';
 echo $password. '|';
 echo $dbname. '|';
 // Connect to the MySQL database
-$conn = new mysqli('127.0.0.1', 'localdb', $password, $dbname);
+$conn = new mysqli('websitegfwor355lgohq.azurewebsites.net', 'localdb', $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
