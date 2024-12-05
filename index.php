@@ -13,9 +13,12 @@ $servername = $db_params['Server'];
 $username = $db_params['User'];
 $password = $db_params['Password'];
 $dbname = $db_params['Database'];
-
+echo $servername. '|';
+echo $username. '|';
+echo $password. '|';
+echo $dbname. '|';
 // Connect to the MySQL database
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli('127.0.0.1', 'localdb', $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
