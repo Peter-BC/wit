@@ -23,7 +23,7 @@ if ($_GET['delete'] == 1 && isset($_GET['id'])) {
 	    $sql = "DELETE FROM students WHERE id='".$_GET['id'] ."'";
     if ($conn->query($sql) === TRUE) {
         echo " record deleted successfully.";
-		echo "<script>location.reload()</script>";
+		echo "<script>location.href='/';</script>";
 	}
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO students (name, email) VALUES ('$name', '$email')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully.";
-		echo "<script>location.reload()</script>";
+		echo "<script>location.href='/';</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -80,8 +80,7 @@ if ($result->num_rows > 0) {
         echo "<tr>
                 <td>" . $row['name'] . "</td>
                 <td>" . $row['email'] . "</td>
-				<td><a href='?delete=1&id=" . $row['id'] . "'>DELETE</a></td>
-              </tr>";
+				<td><a href='?delete=1&id=" . $row['id'] . "'>DELETE</a></td></tr>";
     }
     echo "</table>";
 } else {
