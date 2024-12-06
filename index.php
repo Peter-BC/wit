@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 // Extract database connection details
 
 // Connect to the MySQL database
-$conn = new mysqli('websitewit-566de4289f-wpdbserver.mysql.database.azure.com', 'yxfvhhuzwo', '123123rr!!', 'websitewit_566de4289f_database');
+$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb');
 
 // Check connection
 if ($conn->connect_error) {
