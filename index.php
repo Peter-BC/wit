@@ -19,6 +19,13 @@ if (!$conn->set_charset("utf8")) {
 }
 
 // Handle form submission
+if ($_GET['delete'] == 1 && $_GET['id']) {
+	    $sql = "DELETE FROM students WHERE id='".$_GET['id'] ."'";
+    if ($conn->query($sql) === TRUE) {
+        echo " record deleted successfully.";
+		echo "<script>location.reload()</script>";
+	}
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
@@ -66,12 +73,14 @@ if ($result->num_rows > 0) {
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+				<th>Manage</th>
             </tr>";
     
     while($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $row['name'] . "</td>
                 <td>" . $row['email'] . "</td>
+				<td><a href='?delete=1&id=" . $row['id'] . ">DELETE</a></td>
               </tr>";
     }
     echo "</table>";
