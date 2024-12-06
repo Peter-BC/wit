@@ -6,7 +6,8 @@ ini_set('display_errors', 1);
 // Extract database connection details
 
 // Connect to the MySQL database
-$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb');
+//$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb');
+$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb', 3306, null, MYSQLI_CLIENT_SSL);
 
 // Check connection
 if ($conn->connect_error) {
