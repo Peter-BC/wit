@@ -1,17 +1,12 @@
 <?php
-// Parse the connection string from the environment variable
-$conn_str = getenv('MYSQLCONNSTR_localdb');
-if (!$conn_str) {
-    die("Environment variable 'MYSQLCONNSTR_localdb' not found.");
-}
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Convert the connection string into an associative array
-parse_str(str_replace(';', '&', $conn_str), $db_params);
 
 // Extract database connection details
 
 // Connect to the MySQL database
-$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb');
+$conn = new mysqli('websitewit-566de4289f-wpdbserver.mysql.database.azure.com', 'yxfvhhuzwo', '123123rr!!', 'localdb');
 
 // Check connection
 if ($conn->connect_error) {
