@@ -17,6 +17,10 @@ $conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', '
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+// Set the charset to UTF-8
+if (!$conn->set_charset("utf8")) {
+    die("Error loading character set utf8: " . $conn->error);
+}
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
