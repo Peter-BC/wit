@@ -9,16 +9,9 @@ if (!$conn_str) {
 parse_str(str_replace(';', '&', $conn_str), $db_params);
 
 // Extract database connection details
-$servername = $db_params['Server'];
-$username = $db_params['User'];
-$password = $db_params['Password'];
-$dbname = $db_params['Database'];
-echo $servername. '|';
-echo $username. '|';
-echo $password. '|';
-echo $dbname. '|';
+
 // Connect to the MySQL database
-$conn = new mysqli('websitegfwor355lgohq.azurewebsites.net', 'localdb', $password, $dbname);
+$conn = new mysqli('mydata.mysql.database.azure.com', 'localdb', '123123rr!!', 'localdb');
 
 // Check connection
 if ($conn->connect_error) {
