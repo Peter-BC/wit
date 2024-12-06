@@ -27,13 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO students (name, email) VALUES ('$name', '$email')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully.";
+		echo "<script>location.reload()</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
-// Close the connection
-$conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +78,8 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }	
+// Close the connection
+$conn->close();
 ?>
 </body>
 </html>
