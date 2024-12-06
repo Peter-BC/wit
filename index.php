@@ -44,7 +44,7 @@ $conn->close();
     <title>Student Form</title>
 </head>
 <body>
-    <h1>Student Information Form</h1>
+    <h1>Student register Form</h1>
     <form method="POST" action="">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -54,5 +54,30 @@ $conn->close();
         <br><br>
         <button type="submit">Submit</button>
     </form>
+	<h1>Student Information </h1>
+	<?php
+$sql = "SELECT name, email FROM students";
+$result = $conn->query($sql);
+
+// Check if there are results
+if ($result->num_rows > 0) {
+    // Output data for each row
+    echo "<table border='1'>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>";
+    
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>
+                <td>" . $row['name'] . "</td>
+                <td>" . $row['email'] . "</td>
+              </tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}	
+?>
 </body>
 </html>
