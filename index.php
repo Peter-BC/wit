@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 	<h1>Student Information </h1>
 	<?php
-$sql = "SELECT name, email FROM students";
+$sql = "SELECT id,name, email FROM students";
 $result = $conn->query($sql);
 
 // Check if there are results
@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
         echo "<tr>
                 <td>" . $row['name'] . "</td>
                 <td>" . $row['email'] . "</td>
-				<td><a href='?delete=1&id=" . $row['id'] . ">DELETE</a></td>
+				<td><a href='?delete=1&id=" . $row['id'] . "'>DELETE</a></td>
               </tr>";
     }
     echo "</table>";
