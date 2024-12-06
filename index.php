@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 ini_set('display_errors', 1);
 
 
@@ -19,7 +19,7 @@ if (!$conn->set_charset("utf8")) {
 }
 
 // Handle form submission
-if ($_GET['delete'] == 1 && $_GET['id']) {
+if ($_GET['delete'] == 1 && isset($_GET['id'])) {
 	    $sql = "DELETE FROM students WHERE id='".$_GET['id'] ."'";
     if ($conn->query($sql) === TRUE) {
         echo " record deleted successfully.";
